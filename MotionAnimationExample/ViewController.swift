@@ -12,7 +12,7 @@ import UIKit
 // Manages page scroll. not related to MotionAnimation
 // Please checkout the "Examples" folder
 class ViewController: UIPageViewController {
-  let vcs:[UIViewController] = [SquareViewController(), ListViewController()]
+  @objc let vcs:[UIViewController] = [SquareViewController(), ListViewController()]
 
   override func viewDidLoad() {
     super.viewDidLoad()

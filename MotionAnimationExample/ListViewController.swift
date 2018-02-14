@@ -10,7 +10,7 @@ import UIKit
 
 class ListViewController: ExampleBaseViewController {
   
-  var listItems:[UIView] = []
+  @objc var listItems:[UIView] = []
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -47,7 +47,7 @@ class ListViewController: ExampleBaseViewController {
     listItems.first?.m_animate("center", to: CGPoint(x: view.center.x, y: 150), stiffness: 200, damping:15, threshold:1)
   }
   
-  func pan(_ gr:LZPanGestureRecognizer){
+  @objc func pan(_ gr:LZPanGestureRecognizer){
     switch gr.state{
     case .began, .changed:
       // move the item under touch

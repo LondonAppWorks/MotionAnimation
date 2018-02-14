@@ -14,7 +14,7 @@ open class LZPanGestureRecognizer: UIPanGestureRecognizer {
   
   open var startViewCenterPoint:CGPoint?
   
-  open var translatedViewCenterPoint:CGPoint{
+  @objc open var translatedViewCenterPoint:CGPoint{
     if let startViewCenterPoint = startViewCenterPoint{
       var p = startViewCenterPoint + translation(in: self.view!.superview!)
       p.x = clamp(p.x, range:xRange, overflowScale:xOverflowScale)
@@ -34,8 +34,8 @@ open class LZPanGestureRecognizer: UIPanGestureRecognizer {
     return element
   }
 
-  open var xOverflowScale:CGFloat = 0.3
-  open var yOverflowScale:CGFloat = 0.3
+  @objc open var xOverflowScale:CGFloat = 0.3
+  @objc open var yOverflowScale:CGFloat = 0.3
   open var xRange:ClosedRange<CGFloat> = CGFloat.leastNormalMagnitude...CGFloat.greatestFiniteMagnitude
   open var yRange:ClosedRange<CGFloat> = CGFloat.leastNormalMagnitude...CGFloat.greatestFiniteMagnitude
   

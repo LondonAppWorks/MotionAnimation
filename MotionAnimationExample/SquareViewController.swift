@@ -8,11 +8,11 @@
 
 import UIKit
 
-let π = CGFloat(M_PI)
+let π = CGFloat(Double.pi)
 
 class SquareViewController: ExampleBaseViewController {
 
-  var square:UIView!
+  @objc var square:UIView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -53,8 +53,8 @@ class SquareViewController: ExampleBaseViewController {
     square.m_animate("center", to: view.center, threshold: 1)
   }
   
-  var isBig = false
-  func doubleTap(_ gr:UITapGestureRecognizer){
+  @objc var isBig = false
+  @objc func doubleTap(_ gr:UITapGestureRecognizer){
     let newSize = isBig ? CGSize(width: 150, height: 150) : CGSize(width: 200, height: 200)
     let newColor = isBig ? UIColor.white : UIColor.black
     isBig = !isBig
@@ -62,11 +62,11 @@ class SquareViewController: ExampleBaseViewController {
     square.m_animate("bounds", to: CGRect(origin: CGPoint.zero, size: newSize), stiffness:200, damping:10)
   }
   
-  func tap(_ gr:UITapGestureRecognizer){
+  @objc func tap(_ gr:UITapGestureRecognizer){
     square.m_animate("center", to: gr.location(in: view), stiffness:200, damping:10)
   }
 
-  func pan(_ gr:LZPanGestureRecognizer){
+  @objc func pan(_ gr:LZPanGestureRecognizer){
     // high stiffness -> high acceleration (will help it stay under touch)
     square.m_animate("center", to: gr.translatedViewCenterPoint, stiffness:500, damping:25)
   }
